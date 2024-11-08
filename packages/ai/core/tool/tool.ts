@@ -39,7 +39,7 @@ If not provided, the tool will not be executed automatically.
    */
   execute?: (
     args: inferParameters<PARAMETERS>,
-    options: { abortSignal?: AbortSignal },
+    options: { abortSignal?: AbortSignal, toolCallId: string },
   ) => PromiseLike<RESULT>;
 } & (
   | {

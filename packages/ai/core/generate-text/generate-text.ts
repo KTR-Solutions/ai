@@ -537,7 +537,7 @@ async function executeTools<TOOLS extends Record<string, CoreTool>>({
         }),
         tracer,
         fn: async span => {
-          const result = await tool.execute!(toolCall.args, { abortSignal });
+          const result = await tool.execute!(toolCall.args, { abortSignal, toolCallId: toolCall.toolCallId });
 
           try {
             span.setAttributes(

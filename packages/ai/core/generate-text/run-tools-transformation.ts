@@ -216,7 +216,7 @@ export function runToolsTransformation<TOOLS extends Record<string, CoreTool>>({
                 }),
                 tracer,
                 fn: async span =>
-                  tool.execute!(toolCall.args, { abortSignal }).then(
+                  tool.execute!(toolCall.args, { abortSignal, toolCallId: toolCall.toolCallId }).then(
                     (result: any) => {
                       toolResultsStreamController!.enqueue({
                         ...toolCall,
